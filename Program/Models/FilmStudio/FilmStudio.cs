@@ -1,8 +1,8 @@
 using System;
 
-namespace Program.Models
+namespace Program.Models.Filmstudio
 {
-    public class FilmStudio
+    public class Filmstudio
     {
         public int Id { get; set; }
         public string Name { get; set; }

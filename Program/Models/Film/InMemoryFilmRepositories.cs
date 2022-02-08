@@ -7,14 +7,14 @@ namespace Program.Models.Film
 {
     public class InMemoryFilmRepositories
     {
-        private readonly List<Film> film = new()
-        {
-            new Film { Id = 0, Title = "plommon"}
-        };
+        // private readonly List<Film> film = new()
+        // {
+        //     new Film { Id = 0, Title = "plommon"}
+        // };
 
-        public IEnumerable<Film> GetFilms()
-        {
-            return film;
-        }
+        // public IEnumerable<Film> GetFilms()
+        // {
+        //     return film;
+        // }
     }
 }

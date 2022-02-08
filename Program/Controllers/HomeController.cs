@@ -12,19 +12,34 @@ namespace NewAPI.Controllers
     [Route("api/film/[controller]")]
     public class HomeController : ControllerBase
     {
-        private readonly InMemoryFilmRepositories repository;
+        private readonly IFilmRepository _FilmRepository;
 
-        public HomeController()
+        public HomeController(IFilmRepository filmRepository)
         {
-            repository = new InMemoryFilmRepositories();
+            _FilmRepository = filmRepository;
         }
 
-        [HttpGet]
-        public IEnumerable<Film> GetFilms()
+        // [HttpGet]
+        // public IEnumerable<Film> GetFilms()
+        // {
+        //     var films = filmRepository.AllFilms();
+
+        //     return films;
+        // }
+
+        [HttpPost]
+        public IEnumerable<Film> CreateFilm()
         {
-            var films = repository.GetFilms();
+            List<Film> films = new()
+            { 
+                new Film { Id = 0, Title = "böba", Description = "curiosity"},
+                new Film { Id = 1, Title = "doda", Description = "curiosity"},
+                new Film { Id = 2, Title = "sodar", Description = "curiosity"},
+                new Film { Id = 3, Title = "kloddar", Description = "curiosity"}
+            };
 
             return films;
+
         }
     }
 }

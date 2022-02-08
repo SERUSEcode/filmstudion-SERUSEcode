@@ -27,6 +27,8 @@ namespace Program
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddSession();
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

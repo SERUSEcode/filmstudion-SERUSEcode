@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Program.Models.Film
 {
-    public interface IAltserRepository
+    public interface IFilmRepository
     {
-        public IEnumerable<Film> Film { get; }
-
+        public IEnumerable<Film> AllFilms { get; }
     }
 }
+
+
