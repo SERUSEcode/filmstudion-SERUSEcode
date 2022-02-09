@@ -10,12 +10,17 @@ namespace Program.Models
 
     public class AppDbContext : DbContext
     {
-        public DbSet<Film> Film { get; set; }
-        public DbSet<Filmstudio> Filmstudio { get; set; }
+        public AppDbContext() {
+            this.Database.EnsureCreated();
+        }
+
+        public DbSet<Film.Film> Film { get; set; }
+        public DbSet<Filmstudio.Filmstudio> Filmstudio { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=mydb.db");
+            
+            optionsBuilder.UseSqlite(@"Data Source=mydb.db");
         }
     }
 

@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Program.Models.Film;
+using Program.Models;
 
 namespace Program
 {
@@ -27,7 +29,9 @@ namespace Program
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddSession();
-
+            
+            services.AddDbContext<AppDbContext>();
+            services.AddScoped<IFilmRepository, DbFilmRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

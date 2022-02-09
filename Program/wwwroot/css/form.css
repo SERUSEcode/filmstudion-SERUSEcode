@@ -7,6 +7,14 @@
     margin-right: 25%;
 }
 
+.form {
+    display: block;
+	justify-content: space-around;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 .tab {
     display: flex;
     justify-content: space-between;

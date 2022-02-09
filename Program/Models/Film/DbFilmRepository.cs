@@ -16,6 +16,11 @@ namespace Program.Models.Film
         }
 
         public IEnumerable<Film> AllFilms => _appDbContext.Film;
+
+        public Film GetFilmById(int id)
+        {
+            return _appDbContext.Film.Where(Film => Film.Id == id).SingleOrDefault(); 
+        }        
     }
 }
 

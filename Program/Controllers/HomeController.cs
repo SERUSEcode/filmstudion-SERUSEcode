@@ -5,41 +5,61 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Program.Models.Film;
+using Program.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace NewAPI.Controllers
 {
+    [Route("api/film")]
     [ApiController]
-    [Route("api/film/[controller]")]
     public class HomeController : ControllerBase
     {
         private readonly IFilmRepository _FilmRepository;
 
         public HomeController(IFilmRepository filmRepository)
         {
-            _FilmRepository = filmRepository;
+            this._FilmRepository = filmRepository;
         }
 
-        // [HttpGet]
-        // public IEnumerable<Film> GetFilms()
-        // {
-        //     var films = filmRepository.AllFilms();
+        [HttpGet]
+        public IEnumerable<Film> GetFilms()
+        {
+            var films = _FilmRepository.AllFilms;
 
-        //     return films;
-        // }
+            return films;
+        }
+        
+        [HttpGet("{id}")]
+        public IActionResult GetOwnerById(int id)
+        {
+            try
+            {
+                var film = _FilmRepository.GetFilmById(id);
+                return Ok(film); 
+            }
+            catch
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
         [HttpPost]
-        public IEnumerable<Film> CreateFilm()
+        [ActionName("AddFilm")]
+        public IActionResult AddFilm(string title, int copies, string description)
         {
             List<Film> films = new()
             { 
-                new Film { Id = 0, Title = "böba", Description = "curiosity"},
-                new Film { Id = 1, Title = "doda", Description = "curiosity"},
-                new Film { Id = 2, Title = "sodar", Description = "curiosity"},
-                new Film { Id = 3, Title = "kloddar", Description = "curiosity"}
+                new Film { Id = 0, Title = title, Copies = copies, Description = description}
             };
 
-            return films;
 
+            using (var db = new AppDbContext())
+            {
+                db.Add(films[0]);
+                db.SaveChanges();
+            }
+
+            return Ok(films);
         }
     }
 }
