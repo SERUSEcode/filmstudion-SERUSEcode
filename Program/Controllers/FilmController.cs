@@ -7,21 +7,23 @@ using Microsoft.Extensions.Logging;
 using Program.Models.Film;
 using Program.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NewAPI.Controllers
 {
     [Route("api/film")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class FilmController : ControllerBase
     {
         private readonly IFilmRepository _FilmRepository;
 
-        public HomeController(IFilmRepository filmRepository)
+        public FilmController(IFilmRepository filmRepository)
         {
             this._FilmRepository = filmRepository;
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;
@@ -30,7 +32,7 @@ namespace NewAPI.Controllers
         }
         
         [HttpGet("{id}")]
-        public IActionResult GetOwnerById(int id)
+        public IActionResult GetFilmById(int id)
         {
             try
             {

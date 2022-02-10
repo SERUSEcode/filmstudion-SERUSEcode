@@ -17,7 +17,7 @@
             <h2><a href="indexAdmin.html">Tillbaka</a></h2>
         </div>
 
-        <form method="post" class="form" ame="addMovieForm" action="addMovie.html" onsubmit="addMovie()">
+        <form method="post" class="form" name="addMovieForm" action="addMovie.html" >
             <p>Lägg till film</p>
             <div class="tab">
                 <label for="title">Title på filmen</label>
@@ -34,10 +34,10 @@
                 <input type="text" name="description" >
             </div>
 
-            <button type="submit">Lägg till</button>
+            <button type="button" onclick="AddMovie()">Lägg till</button>
         </form>
     </div>
 
-    <script src="../../js/addMovie.js"></script>
+    <script src="../../js/form.js"></script>
 </body>
 </html>

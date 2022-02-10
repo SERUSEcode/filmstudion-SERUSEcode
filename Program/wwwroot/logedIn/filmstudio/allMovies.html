@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/form.css">
 </head>
-<body>
+<body onload="PrintAllMovies()">
 
     <div class="container" id="body">
         <div id="menu">
@@ -19,13 +19,16 @@
             <h2><a href="indexFilmstudio.html">Tillbaka</a></h2>
         </div>
 
-        <form action="" method="post" id="form">
+        <form action="" method="get" id="form" name="searchFilmForm">
             <p>Alla filmer</p>
-            
-            <div class="tab">
-                <p id="output"></p>
-            </div>
+
+            <label for="searchFilm">Sök på film med id</label>
+            <input type="text" name="searchFilm" >
+            <button type="button" onclick="SearchMovie()">Sök</button>
+
+            <div id="output"></div>
         </form>
     </div>
+    <script src="../../js/getData.js"></script>
 </body>
 </html>

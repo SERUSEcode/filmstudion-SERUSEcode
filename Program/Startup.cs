@@ -32,6 +32,7 @@ namespace Program
             
             services.AddDbContext<AppDbContext>();
             services.AddScoped<IFilmRepository, DbFilmRepository>();
+            services.AddAuthentication();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -56,7 +57,7 @@ namespace Program
 
             app.UseRouting();
             app.UseAuthorization();
-            // app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
