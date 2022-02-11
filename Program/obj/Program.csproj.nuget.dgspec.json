@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj": {}
+    "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\Program.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj": {
+    "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj",
+        "projectPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\Program.csproj",
         "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\obj\\",
+        "outputPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cryptography.Internal": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -69,6 +77,14 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[5.0.0, )"
             },

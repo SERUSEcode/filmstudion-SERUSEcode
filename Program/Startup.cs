@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Program.Models.Film;
 using Program.Models;
+using Program.Models.Register;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Program
 {
@@ -29,6 +32,7 @@ namespace Program
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddSession();
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             
             services.AddDbContext<AppDbContext>();
             services.AddScoped<IFilmRepository, DbFilmRepository>();
@@ -56,7 +60,7 @@ namespace Program
             app.UseRouting();
 
             app.UseRouting();
-            app.UseAuthorization();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

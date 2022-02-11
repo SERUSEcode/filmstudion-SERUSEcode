@@ -12,5 +12,3 @@ namespace Program.Models.Film
         Film GetFilmById(int id);
     }
 }
-
-

@@ -16,11 +16,11 @@
             <h2><a href="../index.html">Tillbaka</a></h2>
         </div>
 
-        <form action="" method="post" id="form">
+        <form method="post" id="form" name="formRegisterUser">
             <p>Registrera ny filmstudio</p>
             <div class="tab">
                 <label for="uname">Användarnamn</label>
-                <input type="text" name="uname"  required>
+                <input type="text" name="uname" required>
             </div>
             
             <div class="tab">
@@ -33,9 +33,10 @@
                 <input type="checkbox" name="isAdmin" id="isAdminCheckBox">
             </div>
 
-            <button type="submit">Skapa konto</button>
+            <button type="button" onclick="RegisterUser()">Skapa konto</button>
         </form>
-        <script src="../js/registerAccount.js"></script>
     </div>
+
+    <script src="../js/registerAccount.js"></script>
 </body>
 </html>

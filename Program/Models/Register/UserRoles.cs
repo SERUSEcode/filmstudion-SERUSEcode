@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
-namespace Program.Models
+namespace Program.Models.Register
 {
-    public class Users : IdentityUser
-    {
-        public string UserName { get; set; }
-    }
+    // public class UserRole : IdentityUserRole
+    // {
+    // }
 }

@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Program.Models
+namespace Program.Models.Register
 {
     public class FilmStudio : IdentityUser
     {
-
+        public string CompanyName { get; set; }
     }
 }
