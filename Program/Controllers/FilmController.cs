@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace NewAPI.Controllers
 {
-    [Route("api/film")]
+    [Route("api/Film")]
     [ApiController]
     public class FilmController : ControllerBase
     {
@@ -23,7 +23,6 @@ namespace NewAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;
@@ -49,15 +48,23 @@ namespace NewAPI.Controllers
         [ActionName("AddFilm")]
         public IActionResult AddFilm(string title, int copies, string description)
         {
-            List<Film> films = new()
-            { 
-                new Film { Id = 0, Title = title, Copies = copies, Description = description}
+            // List<Film> films = new()
+            // { 
+            //     new Film { Id = 0, Title = title, Copies = copies, Description = description}
+            // };
+
+            var films = new Film()
+            {
+                Title = title,
+                Copies = copies,
+                Description = description
             };
+
 
 
             using (var db = new AppDbContext())
             {
-                db.Add(films[0]);
+                db.Add(films);
                 db.SaveChanges();
             }
 

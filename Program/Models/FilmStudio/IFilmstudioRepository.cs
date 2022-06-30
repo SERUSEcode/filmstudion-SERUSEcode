@@ -8,7 +8,7 @@ namespace Program.Models.Filmstudio
     public interface IFilmstudioRepository
     {
         public IEnumerable<Filmstudio> AllFilmstudios { get; }
+        
+        Filmstudio GetFilmstudioById(int id);
     }
 }
-
-

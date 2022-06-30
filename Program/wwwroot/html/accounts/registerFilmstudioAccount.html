@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/form.css">
 </head>
 <body>
     <div class="container" id="body">
         <div id="menu">
-            <h1><a href="../index.html">SVERGIES FÖRENADE FILMSTUDIOS</a></h1>
+            <h1><a href="../../index.html">SVERGIES FÖRENADE FILMSTUDIOS</a></h1>
+            <h2><a href="../../index.html">Tillbaka</a></h2>
             <h2><a href="../index.html">Tillbaka</a></h2>
         </div>
 
-        <form method="post" id="form" name="formRegisterUser">
+        <form action="" method="post" id="form">
             <p>Registrera ny filmstudio</p>
             <div class="tab">
                 <label for="uname">Användarnamn</label>
-                <input type="text" name="uname" required>
+                <input type="text" name="uname"  required>
             </div>
             
             <div class="tab">
@@ -28,15 +29,9 @@
                 <input type="text" name="key" required>
             </div>
 
-            <div class="tab">
-                <label for="isAdmin">Vill du bli admin?:</label>
-                <input type="checkbox" name="isAdmin" id="isAdminCheckBox">
-            </div>
-
-            <button type="button" onclick="RegisterUser()">Skapa konto</button>
+            <button type="submit">Skapa konto</button>
         </form>
-    </div>
-
-    <script src="../js/registerAccount.js"></script>
+        <script src="../../js/registerFilmstudio.js"></script>
+    <div>
 </body>
 </html>

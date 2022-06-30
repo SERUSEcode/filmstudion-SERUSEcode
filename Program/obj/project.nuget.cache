@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qGB32+eaXi32i1tAGIksP3vZb/zW9fFr5yPyytHMOaZr6S7EhdN7vrM5wzwjYT2EO+3I9cZFPsdrh8UbIHb5nw==",
+  "dgSpecHash": "zwlBDM7G9K6JGSNkviWRBQAV9PIDL7xcS/zJvJJgYdFuE08Ef1kw6hmQp09CWKIDs0njgf2vHsyLMondR7Uubw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\program\\Program.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\v1\\Program\\Program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.0\\microsoft.aspnetcore.cryptography.internal.5.0.0.nupkg.sha512",

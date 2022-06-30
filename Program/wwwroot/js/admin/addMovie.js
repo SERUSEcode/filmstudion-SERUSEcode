@@ -7,14 +7,8 @@ async function AddMovie() {
     console.log(`User entred input. (${title} , ${copies} and ${description})`);
     
     const options = {
-        method: 'POST',
-        body: JSON.stringify({title, copies, description})
+        method: 'POST'
     };
-    fetch(`https://localhost:5001/api/film`, options);
-}
-
-
-async function UpdateMovie() {
-    
+    fetch(`https://localhost:5001/api/Film?title=${title}&copies=${copies}&description=${description}`, options);
 }
 

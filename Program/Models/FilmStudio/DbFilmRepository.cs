@@ -16,6 +16,11 @@ namespace Program.Models.Filmstudio
         }
 
         public IEnumerable<Filmstudio> AllFilmstudios => _appDbContext.Filmstudio;
+
+        public Filmstudio GetFilmstudioById(int id)
+        {
+            return _appDbContext.Filmstudio.Where(Filmstudio => Filmstudio.Id == id).SingleOrDefault(); 
+        }        
     }
 }
 

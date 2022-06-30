@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/form.css">
+</head>
+<body>
+    <div class="container" id="body">
+        <div id="menu">
+            <h1><a href="../../index.html">SVERGIES FÖRENADE FILMSTUDIOS</a></h1>
+            <h2><a href="../../index.html">Tillbaka</a></h2>
+        </div>
+
+        <form method="post" id="form" name="formRegisterUser">
+            <p>Registrera ny filmstudio</p>
+            <div class="tab">
+                <label for="uname">Användarnamn</label>
+                <input type="text" name="uname">
+            </div>
+            
+            <div class="tab">
+                <label for="key">Lösenord</label>
+                <input type="text" name="key">
+            </div>
+
+            <div class="tab">
+                <label for="isAdmin">Vill du bli admin?:</label>
+                <input type="checkbox" name="isAdmin" id="isAdminCheckBox">
+            </div>
+
+            <button type="button" onclick="RegisterUser()">Skapa konto</button>
+        </form>
+    </div>
+
+    <script src="../../js/registerAccount.js"></script>
+</body>
+</html>

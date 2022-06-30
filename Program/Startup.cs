@@ -12,8 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Program.Models.Film;
+using Program.Models.Filmstudio;
+using Program.Models.User;
 using Program.Models;
-using Program.Models.Register;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
@@ -32,10 +33,12 @@ namespace Program
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddSession();
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            // services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             
             services.AddDbContext<AppDbContext>();
             services.AddScoped<IFilmRepository, DbFilmRepository>();
+            services.AddScoped<IFilmstudioRepository, DbFilmstudioRepository>();
+            services.AddScoped<IUserRepository, DbUserRepository>();
             services.AddAuthentication();
 
             services.AddControllers();

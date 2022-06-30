@@ -6524,11 +6524,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\v1\\program\\Program.csproj",
       "projectName": "Program",
-      "projectPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\Program.csproj",
+      "projectPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\v1\\program\\Program.csproj",
       "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\Program\\obj\\",
+      "outputPath": "C:\\Users\\kevin\\Documents\\repos\\Kurser\\Dynamiska_Webbsidor\\Inlämningsarbete\\filmstudion-SERUSEcode\\v1\\program\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
