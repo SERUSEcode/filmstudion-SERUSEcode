@@ -48,19 +48,12 @@ namespace NewAPI.Controllers
         [ActionName("AddFilm")]
         public IActionResult AddFilm(string title, int copies, string description)
         {
-            // List<Film> films = new()
-            // { 
-            //     new Film { Id = 0, Title = title, Copies = copies, Description = description}
-            // };
-
             var films = new Film()
             {
                 Title = title,
                 Copies = copies,
                 Description = description
             };
-
-
 
             using (var db = new AppDbContext())
             {
@@ -69,6 +62,38 @@ namespace NewAPI.Controllers
             }
 
             return Ok(films);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateFilm(int id, string title, int copies, string description)
+        {
+            var film = _FilmRepository.GetFilmById(id);
+
+            if(title != null){
+                film.Title = title;
+            } else {
+                film.Title = film.Title;
+            }
+
+            if(copies != 0){
+                film.Copies = copies;
+            } else {
+                film.Copies = film.Copies;
+            }
+
+            if(description != null){
+                film.Description = description;
+            } else {
+                film.Description = film.Description;
+            }
+
+            using (var db = new AppDbContext())
+            {
+                db.Update(film);
+                db.SaveChanges();
+            }
+
+            return Ok(film); 
         }
     }
 }
