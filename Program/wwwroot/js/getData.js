@@ -2,7 +2,7 @@ const elementOutput = document.getElementById("output");
 
 
 async function GetFilms() {
-    const response = await fetch('https://localhost:5001/api/film');
+    const response = await fetch('https://localhost:5001/api/Film');
     let data = await response.json();
 
     return data;

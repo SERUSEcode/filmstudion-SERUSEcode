@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace NewAPI.Controllers
 {
+    
     [Route("api/User")]
     [ApiController]
     public class UserController : Controller
@@ -35,13 +36,13 @@ namespace NewAPI.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(string username, string password, bool isAdmin)
+        public IActionResult Register(string username, string password, string Role)
         {
             var users = new User()
             {
                 UserName = username, 
-                PasswordHash = password, 
-                IsAdmin = isAdmin
+                Password = password, 
+                Role = Role
             };
             
             // using (var db = new AppDbContext())

@@ -23,6 +23,7 @@ namespace NewAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;

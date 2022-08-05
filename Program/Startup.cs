@@ -1,3 +1,5 @@
+using System.Text;
+using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,8 @@ using Program.Models.User;
 using Program.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Program
 {
@@ -27,7 +31,9 @@ namespace Program
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        // public IConfiguration Configuration { get; }
+        public static IConfiguration Configuration { get; set; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,11 +41,30 @@ namespace Program
             // services.AddSession();
             // services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             
+            // Console.WriteLine(Configuration["Logging:LogLevel:Default"]);
+
             services.AddDbContext<AppDbContext>();
             services.AddScoped<IFilmRepository, DbFilmRepository>();
             services.AddScoped<IFilmstudioRepository, DbFilmstudioRepository>();
             services.AddScoped<IUserRepository, DbUserRepository>();
-            services.AddAuthentication();
+            services.AddAuthentication( auth=>
+            {
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = Configuration["Auth:Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Auth:Audience"],
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Auth:SigningKey"]))
+                };
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
