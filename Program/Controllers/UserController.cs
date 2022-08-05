@@ -36,13 +36,14 @@ namespace NewAPI.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(string username, string password, string Role)
+        public IActionResult Register(string username, string password, Boolean Roles)
         {
+
             var users = new User()
             {
                 UserName = username, 
                 Password = password, 
-                Role = Role
+                Role = Roles ? "Admin" : "FilmStudio"
             };
             
             // using (var db = new AppDbContext())

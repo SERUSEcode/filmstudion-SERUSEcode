@@ -1,3 +1,4 @@
+using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using Program.Models.Film;
 using Program.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+
+
 
 namespace NewAPI.Controllers
 {
@@ -23,7 +26,7 @@ namespace NewAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;

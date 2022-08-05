@@ -18,6 +18,8 @@ namespace Program.Models.User
         
         User GetUserById(int id);
 
+        User CheckUser(string UserName, string Password);
+
     }
 
     

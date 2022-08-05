@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System;
 using Program;
 using System.Security.Claims;
@@ -28,23 +29,53 @@ namespace NewAPI.Controllers
 
     public class AuthenticateController : Controller
     {
-        // private IUserRepository _UserRepository;
+        private readonly IUserRepository _UserRepository;
+
+        public AuthenticateController(IUserRepository userRepository)
+        {
+            this._UserRepository = userRepository;
+        }
 
         // [AllowAnoymous]
         [HttpPost]
         [Route("authenticate")]
         public object Authenticate(string UserName, string Password)
         {
-            // var user = _UserRepository.Authenticate(UserName, Password);
+            // var users = _UserRepository.AllUsers;
+
+            // var exist = false;
+            // var savedUserRole = "";
+            
+            var user = _UserRepository.CheckUser(UserName, Password);
+
+            if (user == null) { return BadRequest(new { message = "Username or password was not correct" , user }); }
+
+                
+
+                
+
+            //     if(selectedUser == UserName && selectedUser == Password)
+            //     {
+            //         exist = true;
+            //         savedUserRole = selectedUser.Role.ToString();
+            //     }
+            
+            
+            // if (exist == false)
+            // {
+            //     return BadRequest(new { message = "Username or password was not correct"});
+            // }
 
             var claims = new List<Claim>();
-            claims.Add(new Claim("Username","kevva"));
-            claims.Add(new Claim("displayname","Kevin"));
+            claims.Add(new Claim("Username",user.UserName));
+            claims.Add(new Claim("displayname",user.UserName));
 
             // foreach(var role in user.Roles)
             // {
             //     claims.Add(new Claim(ClaimTypes.Role, role.Name));
             // }
+
+            claims.Add(new Claim(ClaimTypes.Role, user.Role));
             
             var token = JwtHelper.GetJwtToken(
                 // loginUser.Username,
@@ -58,6 +89,8 @@ namespace NewAPI.Controllers
 
             return new 
             {
+                user.Role,
+                UserName,
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 expires = token.ValidTo
             };
