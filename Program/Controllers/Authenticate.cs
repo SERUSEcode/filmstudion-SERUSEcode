@@ -17,6 +17,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Program.Models.User;
+using Program.Models.Filmstudio;
 
 
 
@@ -30,10 +31,12 @@ namespace NewAPI.Controllers
     public class AuthenticateController : Controller
     {
         private readonly IUserRepository _UserRepository;
+        private readonly IFilmstudioRepository _FilmstudioRepository;
 
-        public AuthenticateController(IUserRepository userRepository)
+        public AuthenticateController(IUserRepository userRepository, IFilmstudioRepository filmstudioRepository)
         {
             this._UserRepository = userRepository;
+            this._FilmstudioRepository = filmstudioRepository;
         }
 
         // [AllowAnoymous]
@@ -47,53 +50,77 @@ namespace NewAPI.Controllers
             // var savedUserRole = "";
             
             var user = _UserRepository.CheckUser(UserName, Password);
+            var filmstudio = _FilmstudioRepository.CheckFilmstudio(UserName, Password);
 
-            if (user == null) { return BadRequest(new { message = "Username or password was not correct" , user }); }
+            if (user == null && filmstudio == null) { return BadRequest(new { message = "Username or password was not correct" , user }); }
 
-                
+            if (user == null) {
+                var claims = new List<Claim>();
+                claims.Add(new Claim("Username",filmstudio.Name));
+                claims.Add(new Claim("displayname",filmstudio.Name));
 
-                
-
-            //     if(selectedUser == UserName && selectedUser == Password)
-            //     {
-            //         exist = true;
-            //         savedUserRole = selectedUser.Role.ToString();
-            //     }
+                claims.Add(new Claim(ClaimTypes.Role, "Filmstudio"));
             
-            
-            // if (exist == false)
-            // {
-            //     return BadRequest(new { message = "Username or password was not correct"});
-            // }
-
-            var claims = new List<Claim>();
-            claims.Add(new Claim("Username",user.UserName));
-            claims.Add(new Claim("displayname",user.UserName));
-
-            // foreach(var role in user.Roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role, role.Name));
-            // }
-
-            claims.Add(new Claim(ClaimTypes.Role, user.Role));
-            
-            var token = JwtHelper.GetJwtToken(
+                var token = JwtHelper.GetJwtToken(
                 // loginUser.Username,
                 "TestUsername",
                 Startup.Configuration["Auth:SigningKey"],
                 Startup.Configuration["Auth:Issuer"],
                 Startup.Configuration["Auth:Audience"],
                 TimeSpan.FromMinutes(Convert.ToDouble(Startup.Configuration["Auth:TokenTimeoutMinutes"])),
-                // TimeSpan.FromMinutes(Configuration.JwtToken.TokenTimeoutMinutes),
                 claims.ToArray());
 
-            return new 
+                return new 
+                {
+                    role = "Filmstudio",
+                    username = filmstudio.Name,
+                    city = filmstudio.City,
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    expires = token.ValidTo
+                };
+            }
+            else 
             {
-                user.Role,
-                UserName,
-                token = new JwtSecurityTokenHandler().WriteToken(token),
-                expires = token.ValidTo
-            };
+                //     if(selectedUser == UserName && selectedUser == Password)
+                //     {
+                //         exist = true;
+                //         savedUserRole = selectedUser.Role.ToString();
+                //     }
+                
+                
+                // if (exist == false)
+                // {
+                //     return BadRequest(new { message = "Username or password was not correct"});
+                // }
+
+                var claims = new List<Claim>();
+                claims.Add(new Claim("Username",user.UserName));
+                claims.Add(new Claim("displayname",user.UserName));
+
+                // foreach(var role in user.Roles)
+                // {
+                //     claims.Add(new Claim(ClaimTypes.Role, role.Name));
+                // }
+
+                claims.Add(new Claim(ClaimTypes.Role, user.Role));
+                
+                var token = JwtHelper.GetJwtToken(
+                    // loginUser.Username,
+                    "TestUsername",
+                    Startup.Configuration["Auth:SigningKey"],
+                    Startup.Configuration["Auth:Issuer"],
+                    Startup.Configuration["Auth:Audience"],
+                    TimeSpan.FromMinutes(Convert.ToDouble(Startup.Configuration["Auth:TokenTimeoutMinutes"])),
+                    claims.ToArray());
+
+                return new 
+                {
+                    role = user.Role,
+                    username = UserName,
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    expires = token.ValidTo
+                };
+            }
         }
     }
 

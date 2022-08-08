@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Program.Models.Filmstudio;
 using Program.Models;
+using Program.Models.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
@@ -47,12 +48,13 @@ namespace NewAPI.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult AddFilmstudio(string name, string password)
+        public IActionResult AddFilmstudio(string name, string city, string password)
         {
 
             var filmstudios = new Filmstudio()
             {
-                Name = name,
+                Name = name, 
+                City = city, 
                 Password = password
             };
 

@@ -4,7 +4,7 @@ async function RegisterUser() {
     let key = document.forms["formRegisterUser"]["key"].value;
     var isAdmin = document.getElementById('isAdminCheckBox').checked;
 
-    console.log(`User entred input. (${uname} , ${key} and ${isAdmin})`);
+    console.log(`User entred input. (${uname} and ${isAdmin})`);
     
     const options = {
         method: 'POST'

@@ -43,7 +43,7 @@ namespace NewAPI.Controllers
             {
                 UserName = username, 
                 Password = password, 
-                Role = Roles ? "Admin" : "FilmStudio"
+                Role = Roles ? "Admin" : "none"
             };
             
             // using (var db = new AppDbContext())

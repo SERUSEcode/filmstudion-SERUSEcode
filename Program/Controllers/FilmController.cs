@@ -26,7 +26,6 @@ namespace NewAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;
@@ -49,6 +48,7 @@ namespace NewAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ActionName("AddFilm")]
         public IActionResult AddFilm(string title, int copies, string description)
         {

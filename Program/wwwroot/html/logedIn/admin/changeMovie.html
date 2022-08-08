@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../../css/main.css">
     <link rel="stylesheet" href="../../../css/form.css">
 </head>
-<body onload="GetFilmById()">
+<body>
 
     <div class="container" id="body">
         <div id="menu">
@@ -19,35 +19,30 @@
             <h2><a href="indexAdmin.html">Tillbaka</a></h2>
         </div>
 
-        <form action="" method="post" id="form">
-            <p>Lägg till film</p>
+        <form  method="put" id="form" name="form">
+            <p>Ändra film</p>
             <div class="tab">
-                <label for="idMovie">Välj film</label>
-                <select name="idMovie" id="idMovie" style="width: 177px;">
-                    <option value="test">test</option>
-                    <option value="test2">test2</option>
-                    <option value="test3">test3</option>
-                    <option value="test4">test4</option>
-                </select>
+                <label for="id">Skriv id på filmen du vill ändra på</label>
+                <input type="text" name="id"  required>
             </div>
             <div class="tab">
                 <label for="title">Title på filmen</label>
-                <input type="text" name="title"  required>
+                <input type="text" name="title"  >
             </div>
             
             <div class="tab">
                 <label for="copies">Antal kopior för filmen</label>
-                <input type="text" name="copies" required>
+                <input type="text" name="copies" >
             </div>
 
             <div class="tab">
                 <label for="description">Beskrivning av filmen</label>
-                <input type="text" name="description" required>
+                <input type="text" name="description" >
             </div>
 
-            <button type="submit">Lägg till</button>
+            <button type="submit" onclick="ChangeMovie()">Lägg till</button>
         </form>
     </div>
-    <script src="../../../js/getData.js"></script>
+    <script src="../../../js/postData.js"></script>
 </body>
 </html>

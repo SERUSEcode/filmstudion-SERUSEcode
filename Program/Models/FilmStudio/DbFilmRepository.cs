@@ -21,6 +21,11 @@ namespace Program.Models.Filmstudio
         {
             return _appDbContext.Filmstudio.Where(Filmstudio => Filmstudio.Id == id).SingleOrDefault(); 
         }        
+
+        public Filmstudio CheckFilmstudio(string username, string password)
+        {
+            return _appDbContext.Filmstudio.Where(x => x.Name == username && x.Password == password).FirstOrDefault();
+        }  
     }
 }
 

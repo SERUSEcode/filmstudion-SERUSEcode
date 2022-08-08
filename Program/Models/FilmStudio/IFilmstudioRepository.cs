@@ -10,5 +10,7 @@ namespace Program.Models.Filmstudio
         public IEnumerable<Filmstudio> AllFilmstudios { get; }
         
         Filmstudio GetFilmstudioById(int id);
+
+        Filmstudio CheckFilmstudio(string UserName, string Password);
     }
 }

@@ -14,14 +14,18 @@
         <div id="menu">
             <h1><a href="../../index.html">SVERGIES FÖRENADE FILMSTUDIOS</a></h1>
             <h2><a href="../../index.html">Tillbaka</a></h2>
-            <h2><a href="../index.html">Tillbaka</a></h2>
         </div>
 
-        <form action="" method="post" id="form">
+        <form method="post" id="form" name="RegisterFilmstuidoForm">
             <p>Registrera ny filmstudio</p>
             <div class="tab">
                 <label for="uname">Användarnamn</label>
                 <input type="text" name="uname"  required>
+            </div>
+
+            <div class="tab">
+                <label for="city">Stad</label>
+                <input type="text" name="city" required>
             </div>
             
             <div class="tab">
@@ -29,9 +33,9 @@
                 <input type="text" name="key" required>
             </div>
 
-            <button type="submit">Skapa konto</button>
+            <button type="button" onclick="RegisterUser()">Skapa konto</button>
         </form>
-        <script src="../../js/registerFilmstudio.js"></script>
+        <script src="../../js/accounts/registerFilmstudio.js"></script>
     <div>
 </body>
 </html>
