@@ -22,7 +22,6 @@ namespace NewAPI.Controllers
         {
             this._FilmstudioRepository = filmstudioRepository;
         }
-
         
         [HttpGet]
         public IEnumerable<Filmstudio> GetFilmstudios()

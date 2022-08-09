@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace NewAPI.Controllers
 {
-    
     [Route("api/User")]
     [ApiController]
     public class UserController : Controller
@@ -30,7 +29,6 @@ namespace NewAPI.Controllers
         public IEnumerable<User> GetUsers()
         {
             var users = _UserRepository.AllUsers;
-
             return users;
         }
 
@@ -38,7 +36,6 @@ namespace NewAPI.Controllers
         [Route("register")]
         public IActionResult Register(string username, string password, Boolean Roles)
         {
-
             var users = new User()
             {
                 UserName = username, 

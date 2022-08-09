@@ -20,14 +20,8 @@ using Program.Models.User;
 using Program.Models.Filmstudio;
 
 
-
 namespace NewAPI.Controllers
 {
-    
-    //Ta in användarnamn och lösenord kolla om det är korrekt. 
-    //om det är korrekt så skicka token
-
-
     public class AuthenticateController : Controller
     {
         private readonly IUserRepository _UserRepository;
@@ -43,12 +37,7 @@ namespace NewAPI.Controllers
         [HttpPost]
         [Route("authenticate")]
         public object Authenticate(string UserName, string Password)
-        {
-            // var users = _UserRepository.AllUsers;
-
-            // var exist = false;
-            // var savedUserRole = "";
-            
+        {            
             var user = _UserRepository.CheckUser(UserName, Password);
             var filmstudio = _FilmstudioRepository.CheckFilmstudio(UserName, Password);
 

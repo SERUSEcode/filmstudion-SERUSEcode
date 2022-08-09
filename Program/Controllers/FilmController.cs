@@ -28,7 +28,6 @@ namespace NewAPI.Controllers
         public IEnumerable<Film> GetFilms()
         {
             var films = _FilmRepository.AllFilms;
-
             return films;
         }
         
