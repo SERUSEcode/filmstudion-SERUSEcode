@@ -28,8 +28,6 @@ function OptionsPut() {
     return options;
 }
 
-
-
 async function ChangeMovie() {
 
     let id = document.forms["form"]["id"].value;
@@ -38,5 +36,15 @@ async function ChangeMovie() {
     let description = document.forms["form"]["description"].value;
     
     const response = await fetch(`https://localhost:5001/api/Film/${id}?title=${title}&copies=${copies}&description=${description}`, OptionsPut());
+}
 
+async function AddMovie() {
+
+    let title = document.forms["addMovieForm"]["title"].value;
+    let copies = document.forms["addMovieForm"]["copies"].value;
+    let description = document.forms["addMovieForm"]["description"].value;
+
+    console.log(`User entred input. (${title} , ${copies} and ${description})`);
+    
+    fetch(`https://localhost:5001/api/Film?title=${title}&copies=${copies}&description=${description}`, OptionsPost());
 }

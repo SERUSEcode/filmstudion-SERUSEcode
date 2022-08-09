@@ -68,8 +68,9 @@ namespace NewAPI.Controllers
             return Ok(films);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public IActionResult UpdateFilm(int id, string title, int copies, string description)
+        public IActionResult UpdateFilm(int id, string title, string copies, string description)
         {
             var film = _FilmRepository.GetFilmById(id);
 
@@ -79,8 +80,8 @@ namespace NewAPI.Controllers
                 film.Title = film.Title;
             }
 
-            if(copies != 0){
-                film.Copies = copies;
+            if(copies != null){
+                film.Copies = int.Parse(copies);
             } else {
                 film.Copies = film.Copies;
             }
