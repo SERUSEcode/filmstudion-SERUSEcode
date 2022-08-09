@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
 
-
 namespace NewAPI.Controllers
 {
     [Route("api/Film")]

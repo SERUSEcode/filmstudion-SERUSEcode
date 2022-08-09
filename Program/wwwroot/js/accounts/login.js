@@ -16,8 +16,6 @@ async function Login() {
     const getToken = localStorage.getItem("token");
     const translateToken = JSON.parse(getToken);
 
-
-
     console.log(translateToken.token);
 
 console.log(translateToken);

@@ -25,11 +25,7 @@ namespace Program.Models.User
 
         public User CheckUser(string username, string password)
         {
-            // var user = _appDbContext.User.Include(u => u.Filmstudio).SingleOrDefault(x => x.UserName == username && x.Password == password);   
-            // var user = _appDbContext.User.Where(User => User.Id == id).SingleOrDefault(); 
             return _appDbContext.User.Where(x => x.UserName == username && x.Password == password).FirstOrDefault();
-
-            
         }      
     }
 }

@@ -45,12 +45,6 @@ namespace NewAPI.Controllers
                 Password = password, 
                 Role = Roles ? "Admin" : "none"
             };
-            
-            // using (var db = new AppDbContext())
-            // {
-            //     db.Add(UserRole[0]);
-            //     db.SaveChanges();
-            // }
 
             using (var db = new AppDbContext())
             {

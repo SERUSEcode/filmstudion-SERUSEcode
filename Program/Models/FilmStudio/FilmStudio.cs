@@ -8,7 +8,5 @@ namespace Program.Models.Filmstudio
         public string Name { get; set; }
         public string City { get; set; }
         public string Password { get; set; }
-        
-        //How to make an undet category for borroedMovies
     }
 }

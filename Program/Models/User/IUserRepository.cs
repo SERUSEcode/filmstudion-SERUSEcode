@@ -21,6 +21,4 @@ namespace Program.Models.User
         User CheckUser(string UserName, string Password);
 
     }
-
-    
 }

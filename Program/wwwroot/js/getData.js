@@ -67,24 +67,6 @@ async function PrintAllMovies() {
 
 }
 
-// function GetFilmById() {
-//     const elementOutputIdMovie = document.getElementById("idMovie");
-
-//     const data = GetFilms();
-
-//     for (let i = 0; i < data.length; i++) {
-        
-//         const newOption = document.createElement("option");
-//         const node = document.createTextNode(data[i].id);
-//         const value = document.createV(data[i].id);
-//         newOption.appendChild(node);
-
-//         elementOutputIdMovie.appendChild(newOption);
-        
-//     }
-
-// }
-
 async function PrintFilmstudioById() {
 
     let userInput = document.forms["searchFilmstudioForm"]["searchFilmstudio"].value;
@@ -118,28 +100,6 @@ async function PrintAllFilmstudio() {
     }
 
 }
-
-// async function PrintUserByRole(role){
-
-//     const response = await fetch(`https://localhost:5001/api/User`, OptionsGet());
-//     let data = await response.json();
-
-//     console.log(data);
-
-//     for (let i = 0; i < data.length; i++) {
-
-//         if (data[i].role == "FilmStudio")
-//         {
-//             const newP = document.createElement("p");
-//             const node = document.createTextNode(`ID: ${data[i].id}. Role: ${data[i].role}. Username: ${data[i].userName}`);
-//             newP.appendChild(node);
-
-//             elementOutput.appendChild(newP);
-//         }
-//     }
-
-//     console.log(data);
-// }
 
 function ClearPage() {
     elementOutput.innerHTML = ``;

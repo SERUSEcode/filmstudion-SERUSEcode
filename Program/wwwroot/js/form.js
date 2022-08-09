@@ -12,9 +12,3 @@ async function AddMovie() {
     };
     fetch(`https://localhost:5001/api/film`, options);
 }
-
-
-async function UpdateMovie() {
-    
-}
-
